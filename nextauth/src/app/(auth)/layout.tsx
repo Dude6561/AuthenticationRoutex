@@ -19,7 +19,7 @@ export default function AuthLayout({
       {navLinks.map((link) => {
         const isActive =
           pathname === link.href ||
-          (pathname.startsWith(link.href) && link.href! == "/");
+          (pathname.startsWith(link.href) && link.href !== "/");
         return (
           <Link
             href={link.href}
