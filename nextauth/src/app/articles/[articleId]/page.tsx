@@ -9,6 +9,7 @@ const page = async ({
 }) => {
   const { articleId } = await params;
   const { lang = "en" } = await searchParams;
+
   return (
     <div>
       <h1>News Article id {articleId}</h1>

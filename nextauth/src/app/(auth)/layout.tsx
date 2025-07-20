@@ -16,6 +16,7 @@ export default function AuthLayout({
   const pathname = usePathname();
   return (
     <div>
+      {children}
       {navLinks.map((link) => {
         const isActive =
           pathname === link.href ||
