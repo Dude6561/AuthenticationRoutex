@@ -1,22 +1,19 @@
-// import React from "react";
+// app/fetch/page.tsx
 
-// export async function getServerSideProps() {
-//   const res = await fetch("https://catfact.ninja/fact");
-//   const data = await res.json();
+import React from "react";
 
-//   return {
-//     props: {
-//       fact: data.fact,
-//     },
-//   };
-// }
+// ✅ This is a Server Component by default
+export default async function Page() {
+  const res = await fetch("https://catfact.ninja/fact", {
+    next: { revalidate: 5 }, // ✅ App Router only
+  });
 
-// const page = ({ fact }: { fact: string }) => {
-//   return (
-//     <div>
-//       <h1> {fact}</h1>
-//     </div>
-//   );
-// };
+  const data = await res.json();
 
-// export default page;
+  return (
+    <div>
+      <h1>Cached and Displaying</h1>
+      <h2>{data.fact}</h2>
+    </div>
+  );
+}
