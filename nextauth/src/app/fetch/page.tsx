@@ -1,11 +1,8 @@
-// app/fetch/page.tsx
-
 import React from "react";
 
-// ✅ This is a Server Component by default
 export default async function Page() {
   const res = await fetch("https://catfact.ninja/fact", {
-    next: { revalidate: 5 }, // ✅ App Router only
+    next: { revalidate: 5 }, // App Router only
   });
 
   const data = await res.json();
